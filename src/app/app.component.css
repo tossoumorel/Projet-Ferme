@@ -1,0 +1,25 @@
+mat-sidenav{ 
+width: 250px;
+
+}
+
+#containerImage{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../assets/image/A11.png);
+    background-size: cover;
+}
+
+mat-toolbar{
+
+    background-color: green;
+  
+}
+mat-sidenav-content{
+    background-color: white;
+    
+}
+
+
+
+

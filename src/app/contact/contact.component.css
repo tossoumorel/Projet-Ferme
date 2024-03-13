@@ -1,0 +1,28 @@
+
+@media screen and (min-width : 820px) {
+    .pad{
+padding-top: 14rem;
+padding-bottom: 14rem;
+    }
+}
+/* 912 */
+@media screen and (min-width : 912px) {
+    .pad{
+padding-top:20rem;
+padding-bottom: 20rem;
+    }
+}
+/* 1024 */
+@media screen and (min-width : 1024px) {
+    .pad{
+padding-top: 20rem;
+padding-bottom: 20rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .xl\:py-36 {
+        padding-top: 9rem/* 144px */;
+        padding-bottom: 9rem/* 144px */;
+    }
+}

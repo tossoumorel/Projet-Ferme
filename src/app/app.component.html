@@ -1,0 +1,104 @@
+<div>
+  <mat-sidenav-container class="">
+    <!-- contenu secondaire -->
+
+    <mat-sidenav #sidenav mode="over">
+      <mat-nav-list role="navigation">
+        <ul>
+          @for (item of navItem; track item.link) {
+          <li>
+            <a mat-list-item (click)="closeSidenav()" [routerLink]="item.link">
+              {{ item.linkMenu }}
+            </a>
+          </li>
+          }
+        </ul>
+      </mat-nav-list>
+    </mat-sidenav>
+    <!-- contenu principal -->
+    <mat-sidenav-content class=" " id="containerImage">
+      <div class="sticky top-0 z-[300]">
+        <!-- Barre d'outils -->
+        <div class="  ">
+          <mat-toolbar>
+            <div class="flex items-center justify-between w-full md:px-14">
+              <div class="flex justify-between w-full items-center">
+                <img src="assets/image/logoF.png" alt="" class="rounded-lg hidden md:block">
+                <button
+                  (click)="sidenav.toggle()"
+                  class="visiMenu relative top-1"
+                >
+                  <mat-icon class="">menu</mat-icon>
+                </button>
+                <!-- button cart mobile first -->
+                <a
+                  routerLink="/cart"
+                  class="flex items-center justify-center md:hidden"
+                >
+                  <mat-icon class="">add_shopping_cart</mat-icon>
+                  <span
+                    class="relative -top-2 right-2 bg-red-600 rounded-full max-w-fit px-2 pt-0.5 text-sm"
+                  >
+                    {{ cardItemNUm }}
+                  </span>
+                </a>
+              </div>
+              <!-- barre horizontal -->
+              <div class="invisi visi md:space-x-4">
+                <a routerLink="/Acceuil">Accueil</a>
+                <!-- Nos produit -->
+                <button [matMenuTriggerFor]="menu">Nos Produits</button>
+
+                <mat-menu #menu="matMenu" (closed)="fermerMenu()">
+                  <a mat-menu-item (click)="naviguerVersPage('/charcuterie')"
+                    >Charcuteries</a
+                  >
+                  <a mat-menu-item (click)="naviguerVersPage('/fruit')"
+                    >Fruits et légumes</a
+                  >
+                  <a mat-menu-item (click)="naviguerVersPage('/lait')"
+                    >Produits laitiers</a
+                  >
+                </mat-menu>
+
+                <!-- 
+                ----------Fin nos  produits
+               -->
+                <a routerLink="/Apropos">A propos</a>
+                <a routerLink="/contact">Contact</a>
+                <a routerLink="/cart" class="relative top-1">
+                  <mat-icon>add_shopping_cart</mat-icon>
+                  <span
+                    class="flex absolute -right-7 -top-5 bg-red-600 rounded-full max-w-fit px-3"
+                  >
+                    {{ cardItemNUm }}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </mat-toolbar>
+        </div>
+        <!-- Contenu principale -->
+      </div>
+      <div class="text-black">
+        <router-outlet></router-outlet>
+      </div>
+      <footer class="bg-gray-800 relative  md:w-full  xl:relative text-white py-8 flex ">
+        <div class="container mx-auto flex flex-col items-center">
+          <!-- Logo -->
+          <img
+            src="assets/image/logoF.png"
+            alt="Logo de la Ferme"
+            class="h-16 md:h-12 mb-4"
+          />
+
+          <!-- Copyright and Farm Name -->
+          <p class="text-xs md:text-sm">
+            &copy; 2024 EDEN VERT. Tous droits réservés.
+          </p>
+        </div>
+      </footer>
+    </mat-sidenav-content>
+    <!-- footer -->
+  </mat-sidenav-container>
+</div>
